@@ -11,6 +11,7 @@ import com.yang.service.OrderService;
 import com.yang.utils.KeyUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 
@@ -19,6 +20,7 @@ import java.math.BigDecimal;
  * @Date: 2018\6\27 0027 17:40
  * @Description:
  */
+@Service
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
@@ -27,16 +29,12 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private OderDetailRespository oderDetailRespository;
 
-
-
     @Override
     public OrderDTO create(OrderDTO orderDTO) {
-
-
-          //TODO  查询商品信息（调用商品服务）
-          //TODO 计算总价
-          //TODO  扣库存（调用商品服务）
-          //订单入库
+        //TODO  查询商品信息（调用商品服务）
+        //TODO 计算总价
+        //TODO  扣库存（调用商品服务）
+        //订单入库
         OrderMaster orderMaster = new OrderMaster();
         orderDTO.setOrderId(KeyUtil.genUniqueKey());
         BeanUtils.copyProperties(orderDTO,orderMaster);
