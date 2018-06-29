@@ -1,5 +1,6 @@
 package com.yang.controller;
 
+import com.yang.dto.CartDTO;
 import com.yang.VO.ProdcutVo;
 import com.yang.VO.ProductInfoVo;
 import com.yang.VO.ResultVo;
@@ -10,9 +11,7 @@ import com.yang.service.ProductService;
 import com.yang.utils.ResultVoUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,5 +71,27 @@ public class ProductController {
         }
         return ResultVoUtil.success(prodcutVoList);
     }
+
+    /**
+     * 获取商品列表（给订单服务用）
+     * @param productIdList
+     * @return
+     */
+    @PostMapping("/listForOrder")
+    public List<ProductInfo> listForOrder(@RequestBody  List<String> productIdList){
+       return  productService.findList(productIdList);
+    }
+
+    /**
+     * 扣库存（给订单服务用）
+     * @param cartDTOList
+     */
+    @PostMapping("/decreaseStock")
+    public void decreaseStock(@RequestBody List<CartDTO> cartDTOList){
+        productService.decreaseStock(cartDTOList);
+    }
+
+
+
 
 }
