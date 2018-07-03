@@ -6,7 +6,12 @@
     <groupId>com.yang</groupId>
     <artifactId>order</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <modules>
+        <module>common</module>
+        <module>client</module>
+        <module>server</module>
+    </modules>
+    <packaging>pom</packaging>
 
     <name>order</name>
     <description>Demo project for Spring Boot</description>
@@ -23,49 +28,11 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.M2</spring-cloud.version>
+        <product-client.version>0.0.1-SNAPSHOT</product-client.version>
+        <order-common.version>0.0.1-SNAPSHOT</order-common.version>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-        </dependency>
-
-        <!--注意该版本号问题 大坑-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-feign</artifactId>
-            <version>2.0.0.M1</version>
-        </dependency>
-
-
-   </dependencies>
 
     <dependencyManagement>
         <dependencies>
@@ -75,6 +42,16 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.yang</groupId>
+                <artifactId>product-client</artifactId>
+                <version>${product-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yang</groupId>
+                <artifactId>order-common</artifactId>
+                <version>${order-common.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -116,6 +93,5 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-
 
 </project>
