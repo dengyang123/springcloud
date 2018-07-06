@@ -1,0 +1,23 @@
+eureka:
+  client:
+    service-url:
+      defauleZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/dengyang123/config-repo
+          username: dengyang123
+          password: dengyang1109
+  rabbitmq:
+    host: 192.168.21.38
+    port: 5672
+    username: admin
+    password: dengyang
+
+
+
+
