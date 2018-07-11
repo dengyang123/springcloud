@@ -44,6 +44,7 @@ public class ProductController {
      * @date: 2018\6\27 0027 10:32
      */
     @GetMapping("/list")
+    //@CrossOrigin()实现跨域
     public ResultVo<ProdcutVo> list(){
         //1.查询所有在架商品
         List<ProductInfo> productInfoList = productService.findUpAll();

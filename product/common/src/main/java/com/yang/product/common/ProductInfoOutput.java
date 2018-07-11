@@ -5,11 +5,11 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 /**
- * Created by 廖师兄
- * 2017-12-09 21:23
+ * Created by yang
+ * 2018-07-02 21:23
  */
 @Data
-public class ProductInfoOutput {
+public class  ProductInfoOutput{
 
     private String productId;
 
